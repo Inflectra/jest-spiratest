@@ -1,0 +1,44 @@
+{
+    "name": "jest-spiratest",
+    "author": {
+        "name": "Inflectra Corporation",
+        "email": "support@inflectra.com",
+        "url": "http://www.inflectra.com"
+    },
+    "version": "1.0.0",
+    "main": "./src/SpiraReporter.js",
+    "license": "MIT",
+    "scripts": {
+        "test": "jest"
+    },
+    "jest": {
+        "reporters": [
+            "default",
+            [
+                "./src/SpiraReporter",
+                {
+                    "url": "https://demo.spiraservice.net/peter-inflectra",
+                    "username": "fredbloggs",
+                    "token": "{7A05FD06-83C3-4436-B37F-51BCF0060483}",
+                    "projectId": 1,
+                    "releaseId": 1,
+                    "testSetId": 1,
+                    "testCases": {
+                        "default": 20,
+                        "storesCorrectly": 21,
+                        "javascriptWorks": 16
+                    }
+                }
+            ]
+        ]
+    },
+    "dependencies": {
+        "jest": "^24.0.0"
+    },
+    "keywords": [
+        "jest",
+        "test",
+        "tdd",
+        "spira"
+    ]
+}
