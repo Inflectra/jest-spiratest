@@ -5,11 +5,15 @@
         "email": "support@inflectra.com",
         "url": "http://www.inflectra.com"
     },
-    "version": "1.0.0",
+    "version": "1.0.1",
     "main": "./src/SpiraReporter.js",
     "license": "MIT",
     "scripts": {
         "test": "jest"
+    },
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/Inflectra/jest-spiratest.git"
     },
     "jest": {
         "reporters": [
