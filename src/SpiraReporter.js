@@ -18,10 +18,10 @@ class SpiraReporter {
          {
          TestCaseId: int
          TestName: string
-         StackTrace: string
+         RunnerStackTrace: string
          ExecutionStatusId: int
          StartDate: string
-         Message: string
+         RunnerMessage: string
          ReleaseId: int
          TestSetId: int
          } */
@@ -88,11 +88,11 @@ class SpiraReporter {
             var newTestRun = {
                 TestCaseId: this.credentials.testCases.default,
                 RunnerName: runnerName,
-                TestName: e.title,
-                StackTrace: "",
+                RunnerTestName: e.title,
+                RunnerStackTrace: "",
                 ExecutionStatusId: -1,
                 StartDate: "/Date(" + new Date().getTime() + "-0000)/",
-                Message: "",
+                RunnerMessage: "",
             }
 
             //assign an individual test case
@@ -106,18 +106,18 @@ class SpiraReporter {
 
             //Add up all the error messages
             e.failureMessages.forEach(fail => {
-                newTestRun.StackTrace += fail + "\n";
+                newTestRun.RunnerStackTrace += fail + "\n";
             })
 
             if (e.status == "passed") {
                 //2 is passed in Spira
                 newTestRun.ExecutionStatusId = 2;
-                newTestRun.Message = "Test Succeeded";
+                newTestRun.RunnerMessage = "Test Succeeded";
             }
             else {
                 //1 is failed in Spira
                 newTestRun.ExecutionStatusId = 1;
-                newTestRun.Message = "Test Failed"
+                newTestRun.RunnerMessage = "Test Failed"
             }
 
             //handle optional release and test set id's
