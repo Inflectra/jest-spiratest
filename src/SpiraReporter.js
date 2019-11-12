@@ -115,8 +115,8 @@ class SpiraReporter {
                 newTestRun.RunnerMessage = "Test Succeeded";
             }
             else if (e.status == "pending") {
+                //3 is Not Run in Spira
                 newTestRun.ExecutionStatusId = 3;
-                newTestRun.RunnerMessage = "Test Skipped";
             }
             else {
                 //1 is failed in Spira
