@@ -106,7 +106,7 @@ class SpiraReporter {
 
             //Add up all the error messages
             e.failureMessages.forEach(fail => {
-                newTestRun.RunnerStackTrace += fail + "\n";
+                newTestRun.RunnerStackTrace += fail.replace(/[\u001b\u009b][[()#;?]*(?:[0-9]{1,4}(?:;[0-9]{0,4})*)?[0-9A-ORZcf-nqry=><]/g, '') + "\n";
             })
 
             if (e.status == "passed") {
